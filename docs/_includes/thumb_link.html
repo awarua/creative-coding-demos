@@ -1,0 +1,13 @@
+<!-- 
+  Creates an image link to a sub-folder. 
+  There should be a 'thumb.png' in the folder
+-->
+
+<a href="{{ include.path }}/index.html">
+  <img alt="Screenshot of {{ include.path }}"
+    src="{{ include.path }}/thumb.png"
+    class="sketch-thumb"
+    data-ne="0"
+  onerror="let ne = $(this).data('ne');$(this).data('ne', ne + 1);if (ne == 0 && this.src !='{{ include.path}}/thumb.gif'){this.src = '{{include.path}}/thumb.gif'}"
+    >
+</a>

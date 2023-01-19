@@ -1,0 +1,103 @@
+{% if page.collection %}
+{%   assign name = page.url | split: "/" | last %}
+{%   assign name_length = name | size %}
+{%   assign url_length = page.url | size %}
+{%   assign dir_length = url_length | minus: name_length %}
+{%   assign dir = page.url | slice: 0, dir_length %}
+{% else %}
+{%   assign name = page.name %}
+{%   assign dir = page.dir %}
+{%   assign dir_length = dir | size %}
+{% endif %}
+{% comment %}
+<!-- ## Details on this page -->
+- page.dir: { {page.dir} }
+- page.url: { {page.url} }
+- page.name: { {page.name} }
+- page.path: { {page.path} }
+- dir_size: { {dir_size} }
+- post.name: { {post.name} }
+- post.dir: { {post.dir} }
+- document.name: { {document.name} }
+- document.dir: { {document.dir} }
+- page.collection: { {page.collection} }
+- **name:** {{ name }}
+- **dir:** {{ dir }}
+{% endcomment %}
+{% assign collection_name = "pages" %}
+{% if page.collection %}
+{%   assign collection_name = page.collection %}
+{% endif %}
+{%  for pg in site[collection_name] %}
+{%   comment %}
+<!-- Test whether it is in the same directory -->
+{%   endcomment %}
+{%   if page.collection %}
+{%     assign pg_path = pg.url %}
+{%     assign split_check = 2 %}
+{%   else %}
+{%     assign pg_path = pg.dir %}
+{%     assign split_check = 1 %}
+{%   endif %}
+{%   assign pg_base = pg_path | slice: 0, dir_length %}
+{%    if pg_base == dir %}
+{%     assign pg_rest_length = pg_path | size | minus: dir_length %}
+{%     assign pg_rest = pg_path | slice: dir_length, pg_rest_length %}
+{%     assign pg_rest_split = pg_rest | split: "/" %}
+{%     assign pg_rest_split_size = pg_rest_split | size %}
+{%     assign pg_dir = pg_rest_split[0] %}
+{%      if pg_rest_split_size == split_check %}
+{%       assign title = pg_dir %}
+{%       if page.collection %}
+{%         if pg.title != "Index" =%}
+{%           assign title = pg.title %}
+{%         endif %}
+{%       else %}
+{%         if pg.title %}
+{%           assign title = pg.title %}
+{%         endif %}
+{%       endif %}
+
+{% comment %}
+<!-- Debug variables -->
+## Debug variables
+
+- **title:** {{title}}
+  - **pg.title:** {{ pg.title }}
+  - **pg.url:** {{ pg.url }}
+  - **pg.dir:** {{ pg.dir }}
+  - **id:** {{ pg.id }}
+  - **pg_base:** {{ pg_base }}
+  - **dir:** {{ dir }}
+  - **same_root:** {{ same_root }}
+  - **pg_rest:** {{ pg_rest }}
+  - **pg_rest_split:** [{{ pg_rest_split | join: ", " }}]
+  - **pg_rest_split_size:** {{ pg_rest_split_size }}  
+  - **is_sub_dir:** {{ is_sub_dir }}, {{ same_root }}
+  - **pg_dir:** {{ pg_dir }}
+{% endcomment %}
+ 
+{%       assign description = "No description" %}
+{%       if pg.description %}
+{%         assign description = pg.description %}
+{%       endif %}
+
+<!-- Example details -->
+
+## {{ title }}
+
+{% include thumb_link.html path=pg_dir %}
+
+<!-- Description -->
+
+{{ description }}
+
+<!-- P5 editor link -->
+
+{% if pg.p5editor %}
+  <a href="{{ pg.p5editor }}">{{ pg.p5editor }}</a>
+{% endif %}
+      
+{%      endif %}
+{%    endif %}
+{%  endfor %}

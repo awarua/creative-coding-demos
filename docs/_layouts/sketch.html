@@ -1,0 +1,34 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ site.description }}">
+
+  <base target="_blank">
+
+  <link rel="icon" href="{{ site.baseurl }}/favicon-pink.png" sizes="32x32">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+ 
+  <script src="{{ "/assets/js/p5/p5.min.js" | prepend: site.baseurl }}"></script>
+  <script src="{{ "/assets/js/p5/addons/p5.sound.min.js" | prepend: site.baseurl }}"></script>
+  {% for script in page.scripts %}
+    <script src="{{ script }}"></script>
+  {% endfor %}
+  <script src="sketch.js"></script>
+
+  <link rel="stylesheet" href="{{ "/assets/css/sketch.css" | prepend: site.baseurl }}">
+  {% for style in page.styles %}
+    <link rel="stylesheet" type="text/css" href="{{ style }}">
+  {% endfor %}
+  <meta charset="utf-8">
+
+  {% if page.background %}
+    {% assign page_bg = "background: " | append: page.background | append: ";" %}
+  {% endif %}
+
+</head>
+<body style="{{ page_bg }}" class="{{ page.custom_class }}">
+  {{ content }}
+</body></html>
