@@ -1,0 +1,184 @@
+/* Grid layout for weekly timetable */
+
+.gcont.timetable {
+  background: $info-note-color;
+  grid-template-columns: 60px repeat(5, auto);
+  grid-template-rows: auto repeat(10, 60px);
+  row-gap: 1px;
+  column-gap: 1px;
+  margin-bottom: 3rem;
+
+  div {
+    padding: 4px;
+    box-sizing: border-box;
+  }
+
+  .time {
+    grid-column-start: 1;
+    width: 100%;
+    background: $grey-light;
+    text-align: right;
+    padding-right: 10px;
+    font-weight: bold;
+    font-size: 80%;
+  }
+
+  .time:first-child {
+    text-align: center;
+  }
+
+  .day {
+    text-align: left;
+    border-left: 1px solid $grey-mid;
+  }
+
+  // .mon {
+  //   grid-column-start: 2;
+  // }
+
+  // .day.mon {
+  //   grid-column: 2 / span 2;
+  // }
+
+  // .mon2 {
+  //   grid-column-start: 3;
+  // }
+
+  .tue {
+    grid-column-start: 2;
+  }
+
+  .tue2 {
+    grid-column-start: 3
+  }
+
+  .day.tue {
+    grid-column: 2 / span 2;
+  }
+
+  .wed {
+    grid-column-start: 4;
+  }
+
+  .day.wed {
+    grid-column: 4 / span 2;
+  }
+
+  .wed2 {
+    grid-column-start: 5;
+  }
+
+  .thu {
+    grid-column-start: 6; 
+  }
+
+  .day.thu {
+    grid-column: 6 / span 1;
+  }
+
+  .start9am, .start11am, .start1pm, .start3pm, .start5pm {
+    background-color: darken($grey-light, 5%);
+  }
+
+  .start9am {
+    grid-row: 2;
+  }
+  .start9am.tut {
+    grid-row: 2 / span 2;
+  }
+
+  .start10am {
+    grid-row: 3;
+  }
+  .start10am.tut {
+    grid-row: 3 / span 2;
+  }
+
+  .start11am {
+    grid-row: 4;
+  }
+  .start11am.tut {
+    grid-row: 4 / span 2;
+  }
+
+  .start12noon {
+    grid-row: 5;
+  }
+  .start12noon.tut {
+    grid-row: 5 / span 2;
+  }
+
+  .start1pm {
+    grid-row: 6;
+  }
+  .start1pm.tut {
+    grid-row: 6 / span 2;
+  }
+
+  .start2pm {
+    grid-row: 7;
+  }
+  .start2pm.tut {
+    grid-row: 7 / span 2;
+  }
+
+  .start3pm {
+    grid-row: 8;
+  }
+  .start3pm.tut {
+    grid-row: 8 / span 2;
+  }
+
+  .start4pm {
+    grid-row: 9;
+  }
+  .start4pm.tut {
+    grid-row: 9 / span 2;
+  }
+
+  .start5pm {
+    grid-row: 10;
+  }
+  .start5pm.tut {
+    grid-row: 10 / span 2;
+  }
+
+  .start6pm {
+    grid-row: 11;
+  }
+  .start6pm.tut {
+    grid-row: 11 / span 2;
+  }
+
+  .tut {
+    background: $brand-7;
+  }
+
+  .sess {
+    background: $brand-7;
+  }
+
+  .lec, .sem {
+    background: $brand-6;
+  }
+
+  .location, .activity, .staff {
+    padding: 0;
+    margin: 0;
+  }
+
+  .activity {
+    font-size: 80%;
+    font-weight: bold;
+  }
+
+  .location {
+    font-size: 70%;
+    font-weight: italic;
+  }
+
+  .staff {
+    font-size: 70%;
+  }
+
+}

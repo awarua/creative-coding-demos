@@ -1,0 +1,25 @@
+table.bordered_table {
+  margin-bottom: 3rem;
+
+  tbody {
+    vertical-align: top;
+
+    tr {
+
+      border-top: 1px solid $grey-3;
+
+      th {
+      background: $grey-5;
+      }
+
+      td {
+        div > p {
+          margin: 0;
+        }
+      }
+    
+    }
+
+  }
+
+}

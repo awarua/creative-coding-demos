@@ -1,0 +1,249 @@
+// Helper function
+@function hsb($h-hsb, $s-hsb, $b-hsb, $a: 1) {
+  @if $b-hsb == 0 {
+    @return hsla(0, 0, 0, $a)
+  } @else {
+    $l-hsl: ($b-hsb/2) * (2 - ($s-hsb/100));
+    $s-hsl: ($b-hsb * $s-hsb) / if($l-hsl < 50, $l-hsl * 2, 200 - $l-hsl * 2);
+    @return hsla($h-hsb, $s-hsl, $l-hsl, $a);
+  }
+}
+
+// Our variables
+$base-font-family: Helvetica, Arial, sans-serif;
+$base-font-size:   16px;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.65;
+
+$spacing-unit:     30px;
+
+$on-palm:          600px;
+$on-laptop:        800px;
+
+/* Base palette */
+// $test-color:    #3d9926;
+
+$fuchsia:       #b71c81;  // hsla(321, 73%, 41%, 100%);
+$grey-dark:     #1f1f1f;
+$link-dark:     hsl(208, 69%, 25%);
+$tan-dark:      hsl(54, 38%, 56%);   //hsl(49, 22%, 29%); // #79765b;
+$contrast-dark: hsl(38, 96%, 44%); 
+$affirm-dark:   hsl(159, 73%, 23%);
+
+$_updateGreen: #1cb781;
+
+$brand-1:      $fuchsia;
+$brand-2:      lighten($brand-1,  8%);
+$brand-3:      lighten($brand-1, 16%);
+$brand-4:      lighten($brand-1, 24%);
+$brand-5:      lighten($brand-1, 32%);
+$brand-6:      lighten($brand-1, 40%);
+$brand-7:      lighten($brand-1, 48%);
+$brand-8:      lighten($brand-1, 56%);
+
+$brand-primary:    $brand-1;
+$brand-active:     $brand-2;
+$brand-secondary:  $brand-4;
+
+$task-note-color:      $brand-8;
+$task-note-border:     $brand-7;
+
+$unitMap: $task-note-color;
+$weekHighlight: $brand-1;
+
+$grey-1:      $grey-dark;
+$grey-2:      lighten($grey-1, 12%);
+$grey-3:      lighten($grey-1, 25%);
+$grey-4:      lighten($grey-1, 37%);
+$grey-5:      lighten($grey-1, 50%);
+$grey-6:      lighten($grey-1, 62%);
+$grey-7:      lighten($grey-1, 74%);
+$grey-8:      lighten($grey-1, 87%);
+
+$grey-mid:    $grey-4;
+$grey-light:  $grey-8;
+
+$text-color:       $grey-1;  //  #222;
+$text-inverse:     $grey-8;  // #FFF;
+$background-color: white;  // #fdfdfd;
+$disabled:         $grey-7;  // #eeeeee;
+
+$neutral-1:      $tan-dark;
+$neutral-2:      lighten($neutral-1,  6%);
+$neutral-3:      lighten($neutral-1, 12%);
+$neutral-4:      lighten($neutral-1, 18%);
+$neutral-5:      lighten($neutral-1, 24%);
+$neutral-6:      lighten($neutral-1, 30%);
+$neutral-7:      lighten($neutral-1, 36%);
+$neutral-8:      lighten($neutral-1, 42%);
+
+$tan-light:      $neutral-7;
+$tan-mid:        $neutral-4;
+
+$info-note-color:      $tan-light;
+$info-note-border:     $tan-mid;
+
+$link-1:      $link-dark;
+$link-2:      lighten($link-1, 10%);
+$link-3:      lighten($link-1, 21%);
+$link-4:      lighten($link-1, 31%);
+$link-5:      lighten($link-1, 41%);
+$link-6:      lighten($link-1, 52%);
+$link-7:      lighten($link-1, 62%);
+$link-8:      lighten($link-1, 72%);
+
+$bbDarkBlue:          $link-2;
+$bbActiveBlue:        $link-3;
+$link-color:           $link-4;
+$link-visited:         $link-3;
+$link-hover:           $link-5;
+$debug-note-color:     $link-8;
+$debug-note-border:    $link-7;
+
+$affirm-1:      $affirm-dark;
+$affirm-2:      lighten($affirm-1, 10%);
+$affirm-3:      lighten($affirm-1, 21%);
+$affirm-4:      lighten($affirm-1, 31%);
+$affirm-5:      lighten($affirm-1, 41%);
+$affirm-6:      lighten($affirm-1, 52%);
+$affirm-7:      lighten($affirm-1, 62%);
+$affirm-8:      lighten($affirm-1, 72%);
+
+$contrast-1:      $contrast-dark;
+$contrast-2:      lighten($contrast-1,  7%);
+$contrast-3:      lighten($contrast-1, 14%);
+$contrast-4:      lighten($contrast-1, 21%);
+$contrast-5:      lighten($contrast-1, 28%);
+$contrast-6:      lighten($contrast-1, 35%);
+$contrast-7:      lighten($contrast-1, 42%);
+$contrast-8:      lighten($contrast-1, 49%);
+
+
+
+$highlight: rgb(255, 252, 68);
+
+/* For use as classes direct in html (e.g. for swatches) */
+
+div.swatch {
+  position: relative;
+  width: 75px;
+  height: 75px;
+  margin: 8px;
+  float: left;
+  font-size: 50%;
+  font-weight: normal;
+  text-shadow: 1px 0px 2px rgba(255, 255, 255, 0.4);
+  padding: 10px 4px;
+  box-sizing: border-box;
+  box-shadow: 1px 2px 5px 1px rgba(90, 76, 76, 0.8);
+}
+
+div.swatch:hover::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 30px;
+  border-left: 15px solid white;
+  border-right: 15px solid black;
+  top: 30px;
+  left: 22px;
+}
+
+.bg_fuchsia           { background: $fuchsia; } 
+.bg_updateGreen      { background: $_updateGreen; }
+
+.bg_bbDarkBlue       { background: $bbDarkBlue; }
+.bg_bbActiveBlue     { background: $bbActiveBlue; }
+
+.bg_text-color        { background: $text-color; }
+.bg_text-inverse      { background: $text-inverse; }
+.bg_background-color  { background: $background-color; }
+
+.bg_brand-1           { background: $brand-1; }
+.bg_brand-2           { background: $brand-2; }
+.bg_brand-3           { background: $brand-3; }
+.bg_brand-4           { background: $brand-4; }
+.bg_brand-5           { background: $brand-5; }
+.bg_brand-6           { background: $brand-6; }
+.bg_brand-7           { background: $brand-7; }
+.bg_brand-8           { background: $brand-8; }
+
+.bg_brand-primary     { background: $brand-primary; }
+.bg_brand-active      { background: $brand-active; }
+.bg_brand-secondary   { background: $brand-secondary; }
+
+.bg_link-color        { background: $link-color; }
+.bg_link-visited      { background: $link-visited; }
+.bg_link-hover        { background: $link-hover; }
+
+.bg_grey-1            { background: $grey-1; }
+.bg_grey-2            { background: $grey-2; }
+.bg_grey-3            { background: $grey-3; }
+.bg_grey-4            { background: $grey-4; }
+.bg_grey-5            { background: $grey-5; }
+.bg_grey-6            { background: $grey-6; }
+.bg_grey-7            { background: $grey-7; }
+.bg_grey-8            { background: $grey-8; }
+
+.bg_grey-dark         { background: $grey-dark; }
+.bg_grey-mid          { background: $grey-mid; }
+.bg_grey-light        { background: $grey-light; }
+
+.bg_neutral-1         { background: $neutral-1; }
+.bg_neutral-2         { background: $neutral-2; }
+.bg_neutral-3         { background: $neutral-3; }
+.bg_neutral-4         { background: $neutral-4; }
+.bg_neutral-5         { background: $neutral-5; }
+.bg_neutral-6         { background: $neutral-6; }
+.bg_neutral-7         { background: $neutral-7; }
+.bg_neutral-8         { background: $neutral-8; }
+
+.bg_tan-dark          { background: $tan-dark; }
+.bg_tan-mid           { background: $tan-mid; }
+.bg_tan-light         { background: $tan-light; }
+
+.bg_link-dark         { background: $link-dark; }
+
+.bg_link-1            { background: $link-1; }
+.bg_link-2            { background: $link-2; }
+.bg_link-3            { background: $link-3; }
+.bg_link-4            { background: $link-4; }
+.bg_link-5            { background: $link-5; }
+.bg_link-6            { background: $link-6; }
+.bg_link-7            { background: $link-7; }
+.bg_link-8            { background: $link-8; }
+
+.bg_affirm-dark         { background: $affirm-dark; }
+
+.bg_affirm-1            { background: $affirm-1; }
+.bg_affirm-2            { background: $affirm-2; }
+.bg_affirm-3            { background: $affirm-3; }
+.bg_affirm-4            { background: $affirm-4; }
+.bg_affirm-5            { background: $affirm-5; }
+.bg_affirm-6            { background: $affirm-6; }
+.bg_affirm-7            { background: $affirm-7; }
+.bg_affirm-8            { background: $affirm-8; }
+
+.bg_contrast-dark     { background: $contrast-dark; }
+
+.bg_contrast-1        { background: $contrast-1; }
+.bg_contrast-2        { background: $contrast-2; }
+.bg_contrast-3        { background: $contrast-3; }
+.bg_contrast-4        { background: $contrast-4; }
+.bg_contrast-5        { background: $contrast-5; }
+.bg_contrast-6        { background: $contrast-6; }
+.bg_contrast-7        { background: $contrast-7; }
+.bg_contrast-8        { background: $contrast-8; }
+
+.bg_info-note-color    { background: $info-note-color; }
+.bg_info-note-border   { background: $info-note-border; }
+.bg_task-note-color    { background: $task-note-color; }
+.bg_task-note-border   { background: $task-note-border; }
+.bg_debug-note-color   { background: $debug-note-color; }
+.bg_debug-note-border  { background: $debug-note-border; }
+
+.bg_unitMap            { background: $unitMap; }
+.bg_weekHighlight      { background: $weekHighlight; }
+.bg_disabled           { background: $disabled; }
+
+.bg_highlight                { background: $highlight; }

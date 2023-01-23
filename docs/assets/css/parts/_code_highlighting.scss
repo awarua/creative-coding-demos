@@ -1,0 +1,48 @@
+/**
+ * Code formatting
+ */
+pre,
+code {
+    font-size: 15px;
+}
+
+code {
+    padding: 1px 5px;
+    background-color: $grey-7;
+}
+
+pre {
+    padding: 8px 12px;
+    // overflow-x: scroll;
+    background-color: $neutral-8;
+
+    > code {
+        border: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+figure > pre {
+  border: 1px solid $neutral-6;
+}
+
+table.rouge-table {
+  width: 100%;
+}
+
+td.gutter.gl {
+  width: 20px;
+}
+
+pre.lineno {
+  color: $neutral-1;
+  border-right: 1px solid $neutral-4;
+  margin-bottom: 0;
+}
+
+td.code > pre {
+  margin-bottom: 0;
+  overflow-x: auto;
+  max-width: 90%;
+}

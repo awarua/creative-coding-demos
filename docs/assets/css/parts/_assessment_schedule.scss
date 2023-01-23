@@ -1,0 +1,24 @@
+table.assessment-schedule {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  border-collapse: collapse;
+  border: 1px solid $grey-light;
+
+  td, th {
+    padding: 10px;
+    width: 8%;
+    text-align: left;
+    vertical-align: top;    
+    border: 1px solid $grey-light;
+  }
+
+  th.wide {
+    width: 16%;
+  }
+
+  th.rest {
+    width: 28%;
+  }
+}

@@ -1,0 +1,62 @@
+ul.wizard {
+
+  margin: 0;
+  padding: 1em;
+  margin-bottom: 3em;
+  border-radius: 3px;
+  background: $grey-light;
+  border-color: $grey-mid;
+
+  li {
+    display: none;
+    margin: 0;
+    list-style: none;
+  }
+
+  li.controls {
+    display: block;
+    clear: both;
+    margin: 0 auto;
+    text-align: center;
+
+    button {
+      margin-bottom: 1em;
+      font-weight: 400;
+      background: $brand-secondary;
+      color: $text-inverse;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 0.8em;
+      text-decoration: none;
+      margin-right: 4px;
+    }
+
+    button.disabled, button.disabled:hover {
+      background: $disabled;
+      color: $grey-2;
+    }
+    
+    button:hover {
+      background: $brand-active;
+    }
+
+  }
+
+  li.active {
+    display: block;
+
+    img {
+      width: 70%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    div {
+      clear: both;
+      margin-top: 1em;
+      text-align: center;
+      min-height: 3em;
+    }
+  }
+
+}

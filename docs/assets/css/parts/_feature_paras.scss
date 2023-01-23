@@ -1,0 +1,101 @@
+
+p.lead {
+  font-size: 140%;
+  line-height: 1.7em;
+}
+
+p.info, p.task, p.debug, p.explain, p.affirm, div.info, div.task, div.debug, div.explain, div.affirm, div.hint > .hint-body {
+  padding: 20px;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;	
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+  line-height: 1.75em;
+  background: red;
+}
+
+div.announcement {
+  .info, .task, .debug, .affirm {
+    margin-left: 40px;
+    margin-right: 60px;
+  }
+}
+
+// p.info, div.info {
+//   background: $info-note-color;
+//   border-color: $info-note-border;
+// }
+
+// p.task, div.task, div.hint > .hint-body {
+//   background: $task-note-color;
+//   border-color: $task-note-border;
+
+//   code {
+//     background: $brand-7;
+//   }
+// }
+
+// p.explain, div.explain {
+//   background: $affirm-8;
+//   border-color: $affirm-7;
+// }
+
+// p.affirm, div.affirm {
+//   background: $debug-note-color;
+//   border-color: $debug-note-border;
+// }
+
+// p.debug, div.debug {
+//   background: $debug-note-color;
+//   border-color: $debug-note-border;
+// }
+
+div.hint {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+div.hint .hint-body {
+  display: none;
+}
+
+div.hint.visible .hint-body {
+  display: block;
+}
+
+div.hint > button {
+  display: block;
+  background: $brand-5;
+  color: white;
+  padding: 1em;
+  border-radius: 4px;
+  border-width: 0;
+}
+
+div.hint.visible > button {
+  display: none;
+}
+
+/* https://blackboard.qut.edu.au/webapps/qut-AcadDB_bb-bb_bb60/images/qv_icon_important_alert.gif
+*/ 
+p.disclaimer {
+  background: url(https://blackboard.qut.edu.au/webapps/qut-AcadDB_bb-bb_bb60/images/qv_icon_important_alert.gif) no-repeat scroll 10px 5px #FFFFCE;
+  border-bottom: 1px solid #CC9933;
+  border-top: 1px solid #CC9933;
+  display: block;
+  margin: 10px 0;
+  padding: 6px 15px 6px 30px;
+  font-size: small;
+}
+
+div.highlighter-rouge  pre {
+  background: $grey-7;
+}
+
+@media print {
+  p.info, p.task, p.debug, div.info, div.task, div.debug, figure.highlight, ul.example-list > li {
+    break-inside: avoid;
+  }
+}
+

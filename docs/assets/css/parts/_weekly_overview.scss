@@ -1,0 +1,87 @@
+/* Grid layout for semester overview */
+
+.gcont {
+  display: grid;
+  grid-template-columns: 40px auto auto 90px;
+  row-gap: 20px;
+  column-gap: 10px;
+  margin-bottom: 3rem;
+}
+
+.gweek {
+  grid-column-start: 1;
+  font-weight: lighter;
+  width: 40px;
+  height: 40px;
+  background: $brand-secondary;
+  color: $text-inverse;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.glec {
+  grid-column-start: 2;
+  /* background: green; */
+}
+
+.gtut {
+  grid-column-start: 3;
+  /* background: cyan; */
+}
+
+.title, .gbreak {
+  display: flex;
+  font-weight: bold;
+  font-size: 90%;
+  text-transform: uppercase;
+  background: $grey-7;
+  color: $grey-2;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0 15px 0;
+  border-radius: 4px;
+}
+
+.gbreak {
+  grid-column-start: 2;
+  grid-column-end: span 2;
+}
+
+.gweek.title, .gnote.title {
+  visibility: hidden;
+}
+
+.gcont h4 {
+  margin-top: 6px;
+}
+
+.gnote {
+  color: $grey-2;
+  height: 100%;
+  font-style: italic;
+  font-size: 80%;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  background: $task-note-color;
+  border: 1px solid $task-note-border;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.gnone {
+  background: $grey-7;
+  height: 100%;
+  font-style: italic;
+  font-size: 80%;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  border: 1px solid $grey-7;
+  border-radius: 4px;
+  padding: 12px;
+  box-sizing: border-box;
+}

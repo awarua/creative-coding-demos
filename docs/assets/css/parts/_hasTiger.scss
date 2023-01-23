@@ -1,0 +1,37 @@
+.hasTiger {
+  // background-color: red;
+  position: relative;
+}
+
+.hasTiger::after {
+  content: "";
+  display: block;
+  // position: absolute;
+  position: fixed;
+  //left: -101px;
+  //top: 0;
+  bottom: 0;
+  right: 0;
+  width: 101px;
+  height: 120px;
+  // background-color: blue;
+  background: url($baseurl + '/assets/images/stickers/tiger.gif');
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  transform: scaleX(-1);
+}
+
+ul.hasTiger::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -106px;
+  top: -36px;
+  width: 101px;
+  height: 120px;
+  // background-color: blue;
+  background: url($baseurl + '/assets/images/stickers/tiger.gif');
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  transform: scaleX(1);
+}

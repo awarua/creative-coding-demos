@@ -1,0 +1,16 @@
+div.image_overlay {
+  display: inline-block;
+  margin-bottom: $spacing-unit;
+}
+
+div.image_overlay img {
+  visibility: hidden;
+}
+
+div.image_overlay:hover img {
+  visibility: visible;
+}
+
+img.screenshot {
+  box-shadow: 1px 2px 5px 1px rgba(90, 76, 76, 0.2);
+}

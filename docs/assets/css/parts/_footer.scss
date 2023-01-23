@@ -1,0 +1,14 @@
+@import "site_colours";
+
+footer .footer-date {
+  width: 200px;
+  font-size: $base-font-size * 0.7;
+  color: $grey-7;
+  margin: $spacing-unit auto;
+  text-align: center;
+
+  &::selection {
+    color: white;
+    background: #ACCEF7;
+  }
+}

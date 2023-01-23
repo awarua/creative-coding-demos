@@ -1,0 +1,110 @@
+/* Adapted from skeleton framework */ 
+$grid_gutter: 1%;
+$grid_padding: 4px;
+
+.row {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 1rem auto;
+  padding: 0;
+  box-sizing: border-box; 
+  @extend %clearfix;
+  }
+.column,
+.columns {
+  width: 100%;
+  float: left;
+  padding: $grid_padding;
+  box-sizing: border-box; }
+
+.column.bordered, .columns.bordered {
+  border-width: 1px;
+  border-color: $grey-7;
+}
+
+/* For devices larger than 400px */
+@media (min-width: 400px) {
+  .row {
+    width: 100%;
+    padding: 0;}
+}
+
+/* For devices larger than 550px */
+@media (min-width: 550px) {
+  .row {
+    width: 100%; }
+  .column,
+  .columns {
+    margin-left: $grid_gutter; }
+  .column:first-child,
+  .columns:first-child {
+    margin-left: 0; }
+
+
+  $one_col: (100% - 11 * $grid_gutter) / 12;
+  $two_cols: 2 * (100% - 11 * $grid_gutter) / 12 + $grid_gutter;
+  $three_cols: 3 * (100% - 11 * $grid_gutter) / 12 + 2 * $grid_gutter; 
+  $four_cols: 4 * (100% - 11 * $grid_gutter) / 12 + 3 * $grid_gutter; 
+  $five_cols: 5 * (100% - 11 * $grid_gutter) / 12 + 4 * $grid_gutter; 
+  $six_cols: 6 * (100% - 11 * $grid_gutter) / 12 + 5 * $grid_gutter; 
+  $seven_cols: 7 * (100% - 11 * $grid_gutter) / 12 + 6 * $grid_gutter; 
+  $eight_cols: 8 * (100% - 11 * $grid_gutter) / 12 + 7 * $grid_gutter; 
+  $nine_cols: 9 * (100% - 11 * $grid_gutter) / 12 + 8 * $grid_gutter; 
+  $ten_cols: 10 * (100% - 11 * $grid_gutter) / 12 + 9 * $grid_gutter;
+  $eleven_cols: 11 * (100% - 11 * $grid_gutter) / 12 + 10 * $grid_gutter;
+
+  .one.column,
+  .one.columns                    {width:  $one_col;}
+  .two.columns                    { width: $two_cols;}
+  .three.columns                  { width: $three_cols;}
+  .four.columns                   { width: $four_cols;}
+  .five.columns                   { width: $five_cols;}
+  .six.columns                    { width: $six_cols;}
+  .seven.columns                  { width: $seven_cols;}
+  .eight.columns                  { width: $eight_cols;}
+  .nine.columns                   { width: $nine_cols;}
+  .ten.columns                    { width: $ten_cols;}
+  .eleven.columns                 { width: $eleven_cols;}
+  .twelve.columns                 { width: 100%; margin-left: 0; }
+
+  .one-third.column               { width: $four_cols; }
+  .two-thirds.column              { width: $eight_cols; }
+
+  .one-half.column                { width: $six_cols; }
+
+  /* Offsets */
+  .offset-by-one.column,
+  .offset-by-one.columns          { margin-left: $one_col + $grid_gutter; }
+  .offset-by-two.column,
+  .offset-by-two.columns          { margin-left: $two_cols + $grid_gutter; }
+  .offset-by-three.column,
+  .offset-by-three.columns        { margin-left: $three_cols + $grid_gutter;            }
+  .offset-by-four.column,
+  .offset-by-four.columns         { margin-left: $four_cols + $grid_gutter; }
+  .offset-by-five.column,
+  .offset-by-five.columns         { margin-left: $five_cols + $grid_gutter; }
+  .offset-by-six.column,
+  .offset-by-six.columns          { margin-left: $six_cols + $grid_gutter;            }
+  .offset-by-seven.column,
+  .offset-by-seven.columns        { margin-left: $seven_cols + $grid_gutter; }
+  .offset-by-eight.column,
+  .offset-by-eight.columns        { margin-left: $eight_cols + $grid_gutter; }
+  .offset-by-nine.column,
+  .offset-by-nine.columns         { margin-left: $nine_cols + $grid_gutter;          }
+  .offset-by-ten.column,
+  .offset-by-ten.columns          { margin-left: $ten_cols + $grid_gutter; }
+  .offset-by-eleven.column,
+  .offset-by-eleven.columns       { margin-left: $eleven_cols + $grid_gutter; }
+
+  .offset-by-one-third.column,
+  .offset-by-one-third.columns    { margin-left: $four_cols + $grid_gutter; }
+  .offset-by-two-thirds.column,
+  .offset-by-two-thirds.columns   { margin-left: $eight_cols + $grid_gutter; }
+
+  .offset-by-one-half.column,
+  .offset-by-one-half.columns     { margin-left: $six_cols + $grid_gutter; }
+
+}
+
+
