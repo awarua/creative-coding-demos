@@ -1,6 +1,13 @@
 ---
 
 ---
+$baseurl: "{{ site.baseurl }}";
+
+@import "font_awesome/fontawesome";
+@import "font_awesome/solid";
+@import "base";
+@import "site";
+
 html, body {
   margin: 0;
   padding: 0;

@@ -29,6 +29,13 @@
   {% endif %}
 
 </head>
-<body style="{{ page_bg }}" class="{{ page.custom_class }}">
+<script>
+function reloadPage(){
+  console.log('reloadPage()');
+  location.reload();
+}
+</script>
+<body style="{{ page_bg }}" class="{{ page.custom_class }} p5js_sketch">
+  <div id="rf_div"><span onclick="reloadPage();" id="r"><i class="fas fa-redo-alt"></i></span></div>
   {{ content }}
 </body></html>
